@@ -19,8 +19,11 @@ public class Event {
 	
 	@Column(name = "type")
 	private String type;
-	@Column(name = "dateTime")
-	private String mysqlDateString;
+	@Column(name = "date")
+	private int date;
+	@Column(name = "time")
+	private int time;
+	//private String mysqlDateString;
 	@Column(name = "place")
 	private String place;
 	@Column(name = "createrId")
@@ -29,11 +32,12 @@ public class Event {
 	public Event(){
 		
 	}
-	public Event(String _type, String _dateTime, String _place, int _createrId)
+	public Event(String _type, int _date, int _time, String _place, int _createrId)
     {
         this.type = _type;
-        //this.mysqlDateString=_dateTime;
-        setMysqlDateString(_dateTime);
+        this.date=_date;
+        this.time=_time;
+      //  setMysqlDateString(_dateTime);
         this.place = _place;
         this.createrId=_createrId;
 
@@ -48,19 +52,31 @@ public class Event {
 	}
 
 
-	public String getMysqlDateString() {
-		return mysqlDateString;
-	}
+	//public String getMysqlDateString() {
+		//return mysqlDateString;
+	//}
 
 
-	public void setMysqlDateString(String pattern) {
-		Date now = new Date();
+//	public void setMysqlDateString(String pattern) {
+		//Date now = new Date();
         //note String pattern = "yyyy-MM-dd";
-        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
-		this.mysqlDateString = formatter.format(now);
-		//this.mysqlDateString = pattern;
+      //  SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+	//	this.mysqlDateString = formatter.format(now);
+		
+//	}
+	
+	public int getDate() {
+		return date;
 	}
-
+	public void setDate(int date) {
+		this.date = date;
+	}
+	public int getTime() {
+		return time;
+	}
+	public void setTime(int time) {
+		this.time = time;
+	}
 
 	public String getPlace() {
 		return place;
