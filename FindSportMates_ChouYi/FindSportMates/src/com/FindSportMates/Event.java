@@ -20,9 +20,9 @@ public class Event {
 	@Column(name = "type")
 	private String type;
 	@Column(name = "date")
-	private int date;
+	private String date;
 	@Column(name = "time")
-	private int time;
+	private String time;
 	//private String mysqlDateString;
 	@Column(name = "place")
 	private String place;
@@ -32,7 +32,7 @@ public class Event {
 	public Event(){
 		
 	}
-	public Event(String _type, int _date, int _time, String _place, int _createrId)
+	public Event(String _type, String _date, String _time, String _place, int _createrId)
     {
         this.type = _type;
         this.date=_date;
@@ -65,16 +65,16 @@ public class Event {
 		
 //	}
 	
-	public int getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
