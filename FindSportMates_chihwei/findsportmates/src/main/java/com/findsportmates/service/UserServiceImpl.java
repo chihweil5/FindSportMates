@@ -43,9 +43,14 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Transactional
+	public User getUserByName(String username ) {
+		return this.userDAO.getUserByName(username);
+	}
+	
+	@Transactional
 	public boolean isUserValid(String username, String password) {
 		System.out.println("checking the user......");
-		User myUser = this.userDAO.getUserByName(username);
+		User myUser = getUserByName(username);
 		if (username.equals(myUser.getUsername()) && password.equals(myUser.getPassword()))
 			return true;
 		return false;

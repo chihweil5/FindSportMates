@@ -16,6 +16,9 @@
 					<option value="NONE" label="--- Select ---" />
 					<option>Basketball</option>
 					<option>Volleyball</option>
+					<option>Badminton</option>
+					<option>Soccer</option>
+					<option>Tennis</option>
 				</form:select>
 				<form:errors path="eventType" cssClass="text-warning" />
 			</div>
@@ -24,30 +27,14 @@
 		<fieldset class="form-group">
 			<form:label path="eventDate" class="col-md-1 control-label">Date: </form:label>
 			<div class="col-md-5">
-				<div class="input-group date" data-provide="datepicker">
-					<input type="text" class="form-control">
+				<div class="input-group">
+					<form:input class="form-control" id="date" name="date"
+						placeholder="MM/DD/YYYY" type="text" path="eventDate"/>
 					<div class="input-group-addon">
-						<span class="glyphicon glyphicon-th"></span>
+						<i class="fa fa-calendar"> </i>
 					</div>
 				</div>
 			</div>
-			<!--  jQuery -->
-			<script type="text/javascript"
-				src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-			<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-			<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-
-			<!-- Bootstrap Date-Picker Plugin -->
-			<script type="text/javascript"
-				src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-			<link rel="stylesheet"
-				href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-			<script>
-				$(function() {
-					$("#datepicker").datepicker();
-				});
-			</script>
 		</fieldset>
 
 		<fieldset class="form-group">
@@ -60,6 +47,8 @@
 					<option>10:00-12:00</option>
 					<option>13:00-15:00</option>
 					<option>15:00-17:00</option>
+					<option>17:00-19:00</option>
+					<option>19:00-21:00</option>
 				</form:select>
 				<form:errors path="eventTime" cssClass="text-warning" />
 			</div>
@@ -84,3 +73,31 @@
 </div>
 
 <%@ include file="common/footer.jspf"%>
+
+<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+<script>
+	$(document).ready(
+			function() {
+				var date_input = $('input[name="eventDate"]'); //our date input has the name "date"
+				var container = $('.bootstrap-iso form').length > 0 ? $(
+						'.bootstrap-iso form').parent() : "body";
+				date_input.datepicker({
+					format : 'mm/dd/yyyy',
+					container : container,
+					orientation: "right top",
+					todayHighlight : true,
+					autoclose : true
+				})
+			});
+			
+</script>

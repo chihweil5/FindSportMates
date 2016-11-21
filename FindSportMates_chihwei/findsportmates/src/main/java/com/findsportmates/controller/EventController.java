@@ -11,12 +11,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.findsportmates.model.Event;
 import com.findsportmates.service.EventService;
 
 @Controller
+@SessionAttributes("userid")
 public class EventController {
 	private EventService eventService;
 
@@ -47,7 +48,8 @@ public class EventController {
 
 	@RequestMapping(value = "/add-event", method = RequestMethod.POST)
 	public String addEvent(ModelMap model, Event event) {
-		System.out.println(event.getEventType());
+		event.setHostId(Integer.parseInt((String)model.get("userid")));
+		System.out.println(event);
 		this.eventService.addEvent(event);
 		return "redirect:/event";
 

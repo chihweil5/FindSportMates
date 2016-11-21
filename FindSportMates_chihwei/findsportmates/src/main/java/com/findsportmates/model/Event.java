@@ -90,7 +90,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "Event [eventId=" + eventId + ", hostId=" + hostId + ", eventType=" + eventType + ", eventTime="
-				+ eventTime + ", eventPlace=" + eventPlace + "]";
+				+ eventTime + ", eventDate=" + eventDate + ", eventPlace=" + eventPlace + "]";
 	}
 	
 	

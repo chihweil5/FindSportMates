@@ -7,6 +7,7 @@
 		<thead>
 			<tr>
 				<th>Sport</th>
+				<th>Date</th>
 				<th>Time</th>
 				<th>Place</th>
 				<th>Host</th>
@@ -18,6 +19,7 @@
 			<c:forEach items="${events }" var="event">
 				<tr>
 					<td>${event.eventType}</td>
+					<td>${event.eventDate}</td>
 					<td>${event.eventTime}</td>
 					<td>${event.eventPlace}</td>
 					<td>${event.hostId}</td>

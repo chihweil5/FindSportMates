@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.findsportmates.service.UserService;
 
 @Controller
-@SessionAttributes("username") // only use when generic parameter bc it takes memory
+@SessionAttributes("userid") // only use when generic parameter bc it takes memory
 public class UserController {
 	
 	private UserService userService;
@@ -35,13 +35,7 @@ public class UserController {
 			return "login";
 		}
 		
-		model.put("username", username);
-		model.put("password", password);
-		return "main-menu";
+		model.addAttribute("userid", Integer.toString(userService.getUserByName(username).getId()));
+		return "redirect:/event";
 	}
-	
-	/*@RequestMapping(value = "/welcome", method = RequestMethod.GET)
-	public String showHomePage(){
-		return "welcome";
-	}*/
 }
