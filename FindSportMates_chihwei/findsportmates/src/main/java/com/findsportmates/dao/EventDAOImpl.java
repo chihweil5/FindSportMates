@@ -42,6 +42,16 @@ public class EventDAOImpl implements EventDAO{
 		}
 		return eventsList;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Event> listUserEvents(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Event> eventsList = session.createQuery("from Event e where e.hostId =" + id).list();
+		for(Event e : eventsList){
+			logger.info("Event List::"+e);
+		}
+		return eventsList;
+	}
 
 	public Event getEventById(int id) {
 		Session session = this.sessionFactory.getCurrentSession();

@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.findsportmates.model.Event;
 import com.findsportmates.model.User;
 
 @Repository

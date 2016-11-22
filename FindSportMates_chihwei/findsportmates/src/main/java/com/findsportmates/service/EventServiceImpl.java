@@ -48,5 +48,10 @@ public class EventServiceImpl implements EventService {
 	public void removeEvent(int id) {
 		this.eventDAO.removeEvent(id);
 	}
+	
+	@Transactional
+	public List<Event> listUserEvents(int id) {
+		return this.eventDAO.listUserEvents(id);
+	}
 
 }

@@ -5,20 +5,20 @@
 <div class="container">
 	<h1>Add a Event</h1>
 
-	<form:form method="post" commandName="event">
+	<form:form name="myForm" method="post" commandName="event">
 		<form:hidden path="eventId" />
 
 		<fieldset class="form-group">
 			<form:label path="eventType" class="col-md-1 control-label">Sport: </form:label>
 			<div class="col-md-5">
 				<form:select path="eventType" class="form-control" id="type"
-					required="required">
+					required="required" onChange="showCourt(this.selectedIndex);">
 					<option value="NONE" label="--- Select ---" />
-					<option>Basketball</option>
-					<option>Volleyball</option>
-					<option>Badminton</option>
-					<option>Soccer</option>
-					<option>Tennis</option>
+					<option value="basketball">Basketball</option>
+					<option value="volleyball">Volleyball</option>
+					<option value="badminton">Badminton</option>
+					<option value="soccer">Soccer</option>
+					<option value="tennis">Tennis</option>
 				</form:select>
 				<form:errors path="eventType" cssClass="text-warning" />
 			</div>
@@ -59,10 +59,7 @@
 			<div class="col-md-5">
 				<form:select path="eventPlace" class="form-control" id="place"
 					required="required">
-					<option value="NONE" label="--- Select ---" />
-					<option>court1</option>
-					<option>court2</option>
-					<option>court3</option>
+					<option value="" label="--- Select ---" />
 				</form:select>
 				<form:errors path="eventPlace" cssClass="text-warning" />
 			</div>
@@ -100,4 +97,20 @@
 				})
 			});
 			
+</script>
+
+<script>
+	court = new Array();
+	court[0] = ["Basketball Court 1", "Basketball Court 2", "Basketball Court 3", "Basketball Court 4", "Basketball Court 5"];
+	court[1] = ["Volleyball Court 1", "Volleyball Court 2"];
+	court[2] = ["Badminton Court 1", "Badminton Court 2", "Badminton Court 3"];
+	court[3] = ["Soccer Feild"];
+	court[4] = ["Tennis Court 1", "Tennis Court 2", "Tennis Court 3"];
+	function showCourt(index) {
+		var place = document.getElementById('place');
+		for(var i = 0; i<court[index-1].length; i++) {
+			place.options[i] = new Option(court[index-1][i], court[index-1][i]);
+			}
+		place.length = court[index-1].length;
+		}
 </script>

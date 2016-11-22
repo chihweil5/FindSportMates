@@ -19,7 +19,7 @@ public class UserController {
 	
 	@Autowired(required = true)
 	@Qualifier(value = "userService")
-	public void setEventService(UserService us) {
+	public void setUserService(UserService us) {
 		this.userService = us;
 	}
 	
