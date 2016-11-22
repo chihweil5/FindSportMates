@@ -13,8 +13,8 @@ import java.util.Date;
 public class Event {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
-	protected int id;
+	@Column(name = "eventid")
+	protected int eventid;
 
 	
 	@Column(name = "type")
@@ -26,20 +26,20 @@ public class Event {
 	//private String mysqlDateString;
 	@Column(name = "place")
 	private String place;
-	@Column(name = "createrId")
-	private int createrId;
+	@Column(name = "hostid")
+	private int hostid;
 
 	public Event(){
 		
 	}
-	public Event(String _type, String _date, String _time, String _place, int _createrId)
+	public Event(String _type, String _date, String _time, String _place, int _hostid)
     {
         this.type = _type;
         this.date=_date;
         this.time=_time;
       //  setMysqlDateString(_dateTime);
         this.place = _place;
-        this.createrId=_createrId;
+        this.hostid=_hostid;
 
     }
 	public String getType() {
@@ -88,20 +88,20 @@ public class Event {
 	}
 
 
-	public int getCreaterId() {
-		return createrId;
+	public int getHostid() {
+		return hostid;
 	}
 
 
-	public void setCreaterId(int createrId) {
-		this.createrId = createrId;
+	public void setHostid(int hostid) {
+		this.hostid = hostid;
 	}
 
-	public int getId() {
-	      return id;
+	public int getEventid() {
+	      return eventid;
     }
-    public void setId( int id ) {
-	      this.id = id;
+    public void setEventid( int eventid ) {
+	      this.eventid = eventid;
     }
 
 }
