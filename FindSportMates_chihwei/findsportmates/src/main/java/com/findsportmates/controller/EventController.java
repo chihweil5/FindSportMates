@@ -2,6 +2,7 @@ package com.findsportmates.controller;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,11 +94,15 @@ public class EventController {
 	
 	@RequestMapping(value = "/search-event", method = RequestMethod.POST)
 	public String searchtEvent(ModelMap model,@RequestParam("type") String type,@RequestParam("date") String date,@RequestParam("time1") String num_L,@RequestParam("time2") String num_U) {
-		System.out.println("test:  "+ type +"   " + date + "   " + num_L + "   " + num_U);
+		System.out.println("test:  "+ type +"   " + date +"   " + num_L +"   " + num_U);
 		List<Event> result=this.eventService.searchEvent(type,date,num_L,num_U);
-		for(Event e: result) {
-			System.out.println(e);
-		}
+
+		Iterator<Event>  listI= result.iterator();
+		while(listI.hasNext()) {
+            Event event = (Event) listI.next(); 
+            System.out.println(event.getEventType()  +event.getEventDate() + event.getEventTime() + event.getEventPlace() + event.getHostId()); 
+	   
+	    }
 		return "/";
 
 	}
