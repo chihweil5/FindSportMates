@@ -11,7 +11,7 @@
 		<fieldset class="form-group">
 			<form:label path="eventType" class="col-md-1 control-label">Sport: </form:label>
 			<div class="col-md-5">
-				<form:select path="eventType" class="form-control" id="type"
+				<form:select path="eventType" class="form-control" id="type" name="type"
 					required="required">
 					<option value="NONE" label="--- Select ---" />
 					<option>Basketball</option>
@@ -40,7 +40,7 @@
 		<fieldset class="form-group">
 			<form:label path="eventTime" class="col-md-1 control-label">From Time: </form:label>
 			<div class="col-md-5">
-				<form:select path="eventTime" class="form-control" id="time1"
+				<form:select path="eventTime" class="form-control" id="time1" name="time1"
 					required="required">
 					<option value="NONE" label="--- Select ---" />
 					<option>08:00</option>
@@ -66,7 +66,7 @@
 		<fieldset class="form-group">
 			<form:label path="eventTime" class="col-md-1 control-label">To Time: </form:label>
 			<div class="col-md-5">
-				<form:select path="eventTime" class="form-control" id="time2"
+				<form:select path="eventTime" class="form-control" id="time2" name="time2"
 					required="required">
 					<option value="NONE" label="--- Select ---" />
 					<option>08:00</option>
