@@ -90,7 +90,7 @@
 		</fieldset>
 
 		
-		<input class="btn btn-success" type="search" value="Search" />
+		<input class="btn btn-success" type="submit" value="Search" />
 	</form:form>
 
 </div>
