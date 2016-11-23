@@ -4,14 +4,13 @@
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/dao/EventDAO.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/service/EventServiceImpl.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/dao/UserDAOImpl.java
+/Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/dao/ParticipantDAOImpl.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/PeopleOfCU.java
-/Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/EventFactory.java
-/Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/Basketball.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/Event.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/service/EventService.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/dao/UserDAO.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/User.java
+/Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/dao/ParticipantDAO.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/service/UserService.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/dao/EventDAOImpl.java
-/Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/Volleyball.java
 /Users/chihwei/Documents/workspace/findsportmates/src/main/java/com/findsportmates/model/Officer.java

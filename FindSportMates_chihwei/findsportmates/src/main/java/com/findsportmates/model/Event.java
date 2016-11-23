@@ -1,7 +1,18 @@
 package com.findsportmates.model;
 
-import java.util.Date;
-import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "Event")
@@ -29,6 +40,11 @@ public class Event {
 	@Column(name = "place") 
 	private String eventPlace;
 	
+	@ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "Event_has_User", 
+             joinColumns = { @JoinColumn(name = "eventid") }, 
+             inverseJoinColumns = { @JoinColumn(name = "userid") })
+    private Set<User> participants = new HashSet<User>();
 	
 	public Event() {
 		super();
@@ -60,12 +76,6 @@ public class Event {
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
 	}
-	/*public Date getEventTime() {
-		return eventTime;
-	}
-	public void setEventTime(Date eventTime) {
-		this.eventTime = eventTime;
-	}*/
 	
 	public String getEventTime() {
 		return eventTime;
@@ -87,6 +97,14 @@ public class Event {
 	public void setEventPlace(String eventPlace) {
 		this.eventPlace = eventPlace;
 	}
+	
+	public Set<User> getParticipants() {
+		return participants;
+	}
+	public void setParticipants(Set<User> participants) {
+		this.participants = participants;
+	}
+	
 	@Override
 	public String toString() {
 		return "Event [eventId=" + eventId + ", hostId=" + hostId + ", eventType=" + eventType + ", eventTime="

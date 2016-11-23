@@ -9,9 +9,9 @@
 		<form:hidden path="eventId" />
 
 		<fieldset class="form-group">
-			<form:label path="eventType" class="col-md-1 control-label">Sport: </form:label>
+			<label class="col-md-1 control-label">Sport: </label>
 			<div class="col-md-5">
-				<form:select path="eventType" class="form-control" id="type" name="type"
+				<select class="form-control" id="type" name="type"
 					required="required">
 					<option value="NONE" label="--- Select ---" />
 					<option>Basketball</option>
@@ -19,17 +19,16 @@
 					<option>Badminton</option>
 					<option>Soccer</option>
 					<option>Tennis</option>
-				</form:select>
-				<form:errors path="eventType" cssClass="text-warning" />
+				</select>
 			</div>
 		</fieldset>
 
 		<fieldset class="form-group">
-			<form:label path="eventDate" class="col-md-1 control-label">Date: </form:label>
+			<label class="col-md-1 control-label">Date: </label>
 			<div class="col-md-5">
 				<div class="input-group">
-					<form:input class="form-control" id="date" name="date"
-						placeholder="MM/DD/YYYY" type="text" path="eventDate"/>
+					<input class="form-control" id="date" name="date"
+						placeholder="MM/DD/YYYY" type="text" />
 					<div class="input-group-addon">
 						<i class="fa fa-calendar"> </i>
 					</div>
@@ -38,9 +37,9 @@
 		</fieldset>
 
 		<fieldset class="form-group">
-			<form:label path="eventTime" class="col-md-1 control-label">From Time: </form:label>
+			<label class="col-md-1 control-label">From: </label>
 			<div class="col-md-5">
-				<form:select path="eventTime" class="form-control" id="time1" name="time1"
+				<select class="form-control" id="time1" name="time1"
 					required="required">
 					<option value="NONE" label="--- Select ---" />
 					<option>08:00</option>
@@ -58,15 +57,14 @@
 					<option>20:00</option>
 					<option>21:00</option>
 					<option>22:00</option>
-				</form:select>
-				<form:errors path="eventTime" cssClass="text-warning" />
+				</select>
 			</div>
 		</fieldset>
 		
 		<fieldset class="form-group">
-			<form:label path="eventTime" class="col-md-1 control-label">To Time: </form:label>
+			<label class="col-md-1 control-label">To: </label>
 			<div class="col-md-5">
-				<form:select path="eventTime" class="form-control" id="time2" name="time2"
+				<select class="form-control" id="time2" name="time2"
 					required="required">
 					<option value="NONE" label="--- Select ---" />
 					<option>08:00</option>
@@ -84,8 +82,7 @@
 					<option>20:00</option>
 					<option>21:00</option>
 					<option>22:00</option>
-				</form:select>
-				<form:errors path="eventTime" cssClass="text-warning" />
+				</select>
 			</div>
 		</fieldset>
 

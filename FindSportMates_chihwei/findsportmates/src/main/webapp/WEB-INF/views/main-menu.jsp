@@ -23,7 +23,7 @@
 					<td>${event.eventTime}</td>
 					<td>${event.eventPlace}</td>
 					<td>${hosts[status.index]}</td>
-					<td> <!--<a class="btn btn-success" href="/edit/${event.eventId}">Update</a>-->
+					<td> 
 						<a class="btn btn-primary" href="/">Join</a>
 					</td>
 				</tr>
