@@ -50,8 +50,8 @@ public class EventServiceImpl implements EventService {
 	}
 	
 	@Transactional
-	public List<Event> listUserEvents(int id) {
-		return this.eventDAO.listUserEvents(id);
+	public List searchEvent(String type,String date,String num_L,String num_U) {
+		return this.eventDAO.searchEvent(type,date,num_L,num_U);
 	}
 
 }
