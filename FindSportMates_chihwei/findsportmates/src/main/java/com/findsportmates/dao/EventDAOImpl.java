@@ -76,8 +76,8 @@ public class EventDAOImpl implements EventDAO {
 
 		// use HQL to search
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Event event where event.type like" + "'%" + _type + "%'" + " and " + "event.date like" + "'%"
-				+ _date + "%'" + " and " + "event.time like " + "'%" + _time + "%'";
+		String hql = "from Event event where event.eventType like" + "'%" + _type + "%'" + " and " + "event.eventDate like" + "'%"
+				+ _date + "%'" + " and " + "event.eventTime like " + "'%" + _time + "%'";
 		Query query = session.createQuery(hql);
 		List<Event> result = query.list();
 		return result;
