@@ -11,5 +11,5 @@ public interface EventService {
 	public List<Event> listEvents();
 	public Event getEventById(int id);
 	public void removeEvent(int id);
-	public List searchEvent(String type,String date,String num_L,String num_U);
+	public List<Event> searchEvent(String type,String date,String num_L,String num_U);
 }
