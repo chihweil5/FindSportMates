@@ -96,14 +96,15 @@ public class EventController {
 	public String searchtEvent(ModelMap model,@RequestParam("type") String type,@RequestParam("date") String date,@RequestParam("time1") String num_L,@RequestParam("time2") String num_U) {
 		System.out.println("test:  "+ type +"   " + date +"   " + num_L +"   " + num_U);
 		List<Event> result=this.eventService.searchEvent(type,date,num_L,num_U);
-
+        
 		Iterator<Event>  listI= result.iterator();
 		while(listI.hasNext()) {
             Event event = (Event) listI.next(); 
             System.out.println(event.getEventType()  +event.getEventDate() + event.getEventTime() + event.getEventPlace() + event.getHostId()); 
 	   
 	    }
-		return "/";
+		model.addAttribute("events", result);
+		return "searchevent_result";
 
 	}
 	/*
