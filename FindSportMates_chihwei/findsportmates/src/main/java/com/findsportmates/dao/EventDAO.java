@@ -11,5 +11,7 @@ public interface EventDAO {
 	public List<Event> listUserEvents(int id);
 	public Event getEventById(int id);
 	public void removeEvent(int id);
-	public List<Event> SearchTypeAndDateTime(String _type, String _date, String _time);
+	public List<Event> SearchTypeAndDateTimeRange(String type, String date, String num_L, String num_U);
+	public List<Event> SearchDateTimeRange(String _date,String num_L,String num_U);
+	public List<Event> SearchType(String _type);
 }

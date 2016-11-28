@@ -1,5 +1,7 @@
 package com.findsportmates.dao;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -83,4 +85,91 @@ public class EventDAOImpl implements EventDAO {
 		return result;
 
 	}
+	@SuppressWarnings("unchecked")
+	public List<Event> SearchType(String _type) {
+
+		// use HQL to search		
+    	Session session = this.sessionFactory.getCurrentSession();
+    	String hql = "from Event event where event.eventType like" + "'%"+_type+"%'";
+	    Query query = session.createQuery(hql);
+	    List<Event> result = query.list();
+	    return result;
+	}
+	@SuppressWarnings("unchecked")
+	public List<Event> SearchDateTime(String _date,String  _time) {
+
+		// use HQL to search		
+    	Session session = this.sessionFactory.getCurrentSession(); 
+    	String hql = "from Event event where event.eventDate like" + "'%"+_date+"%'" +" and " +"event.eventTime like " + "'%"+_time+"%'";
+	    Query query = session.createQuery(hql);
+    	List<Event> result=query.list();
+	    return result;
+        
+	}
+	public List<Event> SearchDateTimeRange(String _date,String num_L,String num_U) {
+		int Int_num_L=toIntTime(num_L);
+		int Int_num_U=toIntTime(num_U);
+		String time;
+	    List<Event> list = new LinkedList<Event>();
+		for (int i  = Int_num_L ; i <= Int_num_U;i++) {
+	
+			 time = toSTime(i);
+			 List<Event> result=SearchDateTime(_date,time);
+			 Iterator<Event> events =result.iterator(); 
+
+		     while(events.hasNext()) {
+		            Event event = (Event) events.next(); 
+		    		list.add((Event) event);
+		    }	
+		}
+		return list;
+		
+		
+	    }
+	public List<Event> SearchTypeAndDateTimeRange(String type, String date, String num_L, String num_U) {
+		int Int_num_L=toIntTime(num_L);
+		int Int_num_U=toIntTime(num_U);
+		String time;
+	    List<Event> list = new LinkedList<Event>();
+		for (int i  = Int_num_L ; i <= Int_num_U;i++) {
+	
+			 time = toSTime(i);
+			 List<Event> result=SearchTypeAndDateTime(type,date,time);
+			 Iterator<Event> events =result.iterator(); 
+
+		     while(events.hasNext()) {
+		            Event event = (Event) events.next(); 
+		    		list.add((Event) event);
+		    }	
+		}
+		return list;
+	}
+	
+	public static int toIntTime(String s) {
+		String[] hourMin = s.split(":");
+		int hour = Integer.parseInt(hourMin[0]);
+		return hour;
+	}
+
+	public static String toSTime(int _i) {
+		String s1;
+		String s2;
+		if (_i < 10) {
+			s1 = "0" + Integer.toString(_i);
+		} else {
+			s1 = Integer.toString(_i);
+		}
+		if (_i + 2 < 10) {
+			s2 = "0" + Integer.toString(_i + 2);
+		} else {
+			s2 = Integer.toString(_i + 2);
+		}
+		String s = s1 + ":00-" + s2 + ":00";
+		return s;
+
+	
+	}
+    
+
+	
 }
