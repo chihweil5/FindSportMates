@@ -3,7 +3,7 @@
 
 <div class="container">
 	<table class="table table-striped">
-		<caption>Events are</caption>
+		<caption>Current events are</caption>
 		<thead>
 			<tr>
 				<th>Sport</th>
@@ -31,7 +31,7 @@
 		</tbody>
 	</table>
 	<div>
-		<a class="btn btn-success" href="/add-event">Add</a>
+		<a class="btn btn-success" href="/add-event">New Event</a>
 	</div>
 </div>
 <%@ include file="common/footer.jspf"%>

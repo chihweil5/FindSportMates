@@ -5,7 +5,8 @@
 		</div>
 		<div class="navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="/event">Home</a></li>
+				<li><a href="/event">Current Events</a></li>
+				<li><a href="/search-event">Find Events</a></li>
 				<li><a href="/manage-event">My Events</a></li>
 			</ul>
 		</div>

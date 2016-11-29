@@ -30,8 +30,5 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<div>
-		<a class="btn btn-success" href="/add-event">Add</a>
-	</div>
 </div>
 <%@ include file="common/footer.jspf"%>

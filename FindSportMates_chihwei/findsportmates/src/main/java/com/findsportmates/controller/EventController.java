@@ -80,11 +80,11 @@ public class EventController {
 		return "redirect:/manage-event";
 	}
 	
-	@RequestMapping("/join/{eventId}")
+	/*@RequestMapping("/join/{eventId}")
 	public String joinEvent(@PathVariable("eventId") int eventId) {
 		this.eventService.removeEvent(eventId);
 		return "redirect:/manage-event";
-	}
+	}*/
 	
 	@RequestMapping(value = "/search-event", method = RequestMethod.GET)
 	public String showSearchPage(ModelMap model) {

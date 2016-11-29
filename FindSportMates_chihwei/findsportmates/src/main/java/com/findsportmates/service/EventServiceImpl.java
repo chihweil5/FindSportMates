@@ -55,6 +55,7 @@ public class EventServiceImpl implements EventService {
 	    List<Event> list = new LinkedList<Event>();
 	    System.out.println(type);
 		if (type.equals("unrestricted")){
+			System.out.println("Search all sports");
 			list=this.eventDAO.SearchDateTimeRange(date,num_L,num_U);
 		}else if(num_L.equals("unrestricted") & num_U.equals("unrestricted")){
 			list=this.eventDAO.SearchType(type);

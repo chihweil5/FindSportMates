@@ -31,8 +31,8 @@ public class User {
 	@Column(name = "role")
 	private int role;
 	
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
-	private Set<Event> events = new HashSet<Event>(0);
+	/*@ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
+	private Set<Event> events = new HashSet<Event>(0);*/
 
 	public User(){
 		super();
