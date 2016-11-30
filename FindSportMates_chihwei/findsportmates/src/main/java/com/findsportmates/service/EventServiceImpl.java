@@ -1,15 +1,19 @@
 package com.findsportmates.service;
 
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.findsportmates.dao.EventDAO;
 import com.findsportmates.model.Event;
+import com.findsportmates.model.User;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -55,7 +59,6 @@ public class EventServiceImpl implements EventService {
 	    List<Event> list = new LinkedList<Event>();
 	    System.out.println(type);
 		if (type.equals("unrestricted")){
-			System.out.println("Search all sports");
 			list=this.eventDAO.SearchDateTimeRange(date,num_L,num_U);
 		}else if(num_L.equals("unrestricted") & num_U.equals("unrestricted")){
 			list=this.eventDAO.SearchType(type);
@@ -66,9 +69,19 @@ public class EventServiceImpl implements EventService {
 		return list;
 	}
 	
-
-
-
+	@Transactional
+	public void addParticipant(int id, User u) {
+		Set<User> p = new HashSet<User>();
+		Event e = getEventById(id);
+		p.addAll(e.getParticipants());
+		for(User user: p){
+			System.out.println("Participants List::" + u);
+		}
+		//Set<User> p = eventDAO.getParticipants(e.getEventId());
+		p.add(u);
+		e.setParticipants(p);
+		updateEvent(e);
+	}
 
 
 }

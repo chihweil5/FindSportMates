@@ -3,7 +3,7 @@
 
 <div class="container">
 	<table class="table table-striped">
-		<caption>Events are</caption>
+		<caption>Results are</caption>
 		<thead>
 			<tr>
 				<th>Sport</th>

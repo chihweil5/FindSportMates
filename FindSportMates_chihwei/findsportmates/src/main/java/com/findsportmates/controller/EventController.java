@@ -2,8 +2,10 @@ package com.findsportmates.controller;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -67,8 +69,13 @@ public class EventController {
 	@RequestMapping(value = "/add-event", method = RequestMethod.POST)
 	public String addEvent(ModelMap model, Event event) {
 		//System.out.println(event.getEventPlace() + (String)model.get("userid"));
-		event.setHostId(Integer.parseInt((String)model.get("userid")));
-		System.out.println(event);
+		int userid = Integer.parseInt((String)model.get("userid"));
+		User host = userService.getUserById(userid);
+		event.setHostId(userid);
+		Set<User> p = new HashSet<User>();
+		p.add(host);
+		event.setParticipants(p);
+		//System.out.println(event);
 		this.eventService.addEvent(event);
 		return "redirect:/event";
 
@@ -80,11 +87,14 @@ public class EventController {
 		return "redirect:/manage-event";
 	}
 	
-	/*@RequestMapping("/join/{eventId}")
-	public String joinEvent(@PathVariable("eventId") int eventId) {
-		this.eventService.removeEvent(eventId);
-		return "redirect:/manage-event";
-	}*/
+	@RequestMapping("/join/{eventId}")
+	public String joinEvent(ModelMap model, @PathVariable("eventId") int eventId) {
+		System.out.println("test:" + eventId);
+		int userid = Integer.parseInt((String)model.get("userid"));
+		User p = userService.getUserById(userid);
+		this.eventService.addParticipant(eventId, p);
+		return "redirect:/event";
+	}
 	
 	@RequestMapping(value = "/search-event", method = RequestMethod.GET)
 	public String showSearchPage(ModelMap model) {
@@ -103,7 +113,16 @@ public class EventController {
             System.out.println(event.getEventType()  +event.getEventDate() + event.getEventTime() + event.getEventPlace() + event.getHostId()); 
 	   
 	    }
+		/*List<String> username = new ArrayList<String>();
+		for(Event tmpEvent : result) {
+			int tmpid = tmpEvent.getHostId();
+			User tmpuser = userService.getUserById(tmpid);
+			username.add(tmpuser.getUsername());
+			System.out.println("host:" + tmpuser.getUsername());
+		}*/
+		
 		model.addAttribute("events", result);
+		//model.addAttribute("hosts", username);
 		return "searchevent_result";
 
 	}

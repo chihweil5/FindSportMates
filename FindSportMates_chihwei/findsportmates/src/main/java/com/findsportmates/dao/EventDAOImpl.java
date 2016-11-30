@@ -1,8 +1,11 @@
 package com.findsportmates.dao;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.findsportmates.model.Event;
+import com.findsportmates.model.User;
 
 @Repository
 public class EventDAOImpl implements EventDAO {
@@ -169,7 +173,5 @@ public class EventDAOImpl implements EventDAO {
 
 	
 	}
-    
-
 	
 }

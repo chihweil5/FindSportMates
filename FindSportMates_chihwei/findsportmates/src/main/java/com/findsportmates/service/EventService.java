@@ -3,6 +3,7 @@ package com.findsportmates.service;
 import java.util.List;
 
 import com.findsportmates.model.Event;
+import com.findsportmates.model.User;
 
 public interface EventService {
 	
@@ -13,4 +14,5 @@ public interface EventService {
 	public Event getEventById(int id);
 	public void removeEvent(int id);
 	public List<Event> searchEvent(String type,String date,String num_L,String num_U);
+	public void addParticipant(int id, User u);
 }

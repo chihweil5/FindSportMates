@@ -40,11 +40,11 @@ public class Event {
 	@Column(name = "place") 
 	private String eventPlace;
 	
-	/*@ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "Event_has_User", 
+	@ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "Event_User", 
              joinColumns = { @JoinColumn(name = "eventid") }, 
              inverseJoinColumns = { @JoinColumn(name = "userid") })
-    private Set<User> participants = new HashSet<User>();*/
+    private Set<User> participants = new HashSet<User>();
 	
 	public Event() {
 		super();
@@ -98,12 +98,12 @@ public class Event {
 		this.eventPlace = eventPlace;
 	}
 	
-	/*public Set<User> getParticipants() {
+	public Set<User> getParticipants() {
 		return participants;
 	}
 	public void setParticipants(Set<User> participants) {
 		this.participants = participants;
-	}*/
+	}
 	
 	@Override
 	public String toString() {

@@ -31,8 +31,8 @@ public class User {
 	@Column(name = "role")
 	private int role;
 	
-	/*@ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
-	private Set<Event> events = new HashSet<Event>(0);*/
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
+	private Set<Event> events = new HashSet<Event>(0);
 
 	public User(){
 		super();
@@ -87,6 +87,14 @@ public class User {
 		this.role = role;
 	}
 
+
+	public Set<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(Set<Event> events) {
+		this.events = events;
+	}
 
 	@Override
 	public String toString() {
