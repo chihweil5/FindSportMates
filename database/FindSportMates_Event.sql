@@ -30,7 +30,7 @@ CREATE TABLE `Event` (
   `place` varchar(45) NOT NULL,
   `hostid` int(11) NOT NULL,
   PRIMARY KEY (`eventid`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,6 @@ CREATE TABLE `Event` (
 
 LOCK TABLES `Event` WRITE;
 /*!40000 ALTER TABLE `Event` DISABLE KEYS */;
-INSERT INTO `Event` VALUES (21,'Basketball','11/14/2016','13:00-15:00','court3',0),(22,'Basketball','11/23/2016','10:00-12:00','court1',0),(23,'Volleyball','11/21/2016','08:00-10:00','court2',1),(24,'Basketball','11/21/2016','13:00-15:00','court2',1),(25,'Basketball','11/13/2016','13:00-15:00','court3',1);
 /*!40000 ALTER TABLE `Event` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-21 13:20:18
+-- Dump completed on 2016-11-30 17:53:25
