@@ -55,6 +55,7 @@
 
 </div>
 <%@ include file="common/footer.jspf"%>
+
 <script>
 	$(document).ready(function() {
 		$(".triggerJoin").click(function(e){
@@ -63,5 +64,4 @@
 				$("#myModal").modal();
 			})
 	});
-			
 </script>

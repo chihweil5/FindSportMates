@@ -1,5 +1,8 @@
 package com.findsportmates.controller;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.findsportmates.model.Event;
+import com.findsportmates.model.User;
 import com.findsportmates.service.UserService;
 
 @Controller
@@ -37,5 +42,20 @@ public class UserController {
 		
 		model.addAttribute("userid", Integer.toString(userService.getUserByName(username).getId()));
 		return "redirect:/event";
+	}
+	
+	@RequestMapping(value = "/search-user", method = RequestMethod.GET)
+	public String showSearchUserPage(ModelMap model){
+		//model.addAttribute("user", new User());
+		return "searchuser";
+	}
+	
+	@RequestMapping(value = "/search-user", method = RequestMethod.POST)
+	public String searchtEvent(ModelMap model,@RequestParam("username") String username) {
+		System.out.println("test:  "+ username);
+		User result = this.userService.getUserByName(username);
+		model.addAttribute("user", result);
+		return "searchuser_result";
+
 	}
 }

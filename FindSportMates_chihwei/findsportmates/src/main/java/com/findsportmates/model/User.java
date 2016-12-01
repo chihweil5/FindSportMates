@@ -31,6 +31,15 @@ public class User {
 	@Column(name = "role")
 	private int role;
 	
+	@Column(name = "phone")
+	private String phone;
+	
+	@Column(name = "year")
+	private String year;
+	
+	@Column(name = "department")
+	private String department;
+	
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
 	private Set<Event> events = new HashSet<Event>(0);
 
@@ -95,12 +104,38 @@ public class User {
 	public void setEvents(Set<Event> events) {
 		this.events = events;
 	}
+	
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + ", phone="
+				+ phone + ", year=" + year + ", department=" + department + ", events=" + events + "]";
 	}
-	
+
 	
 	
 }

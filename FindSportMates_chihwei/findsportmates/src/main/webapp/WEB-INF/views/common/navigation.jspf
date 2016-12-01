@@ -8,6 +8,7 @@
 				<li><a href="/event">Current Events</a></li>
 				<li><a href="/search-event">Search Events</a></li>
 				<li><a href="/manage-event">My Events</a></li>
+				<li><a href="/search-user">Search User</a></li>
 			</ul>
 		</div>
 	</div>
