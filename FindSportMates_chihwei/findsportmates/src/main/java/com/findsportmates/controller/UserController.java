@@ -1,0 +1,89 @@
+package com.findsportmates.controller;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.findsportmates.model.Event;
+import com.findsportmates.model.User;
+import com.findsportmates.service.UserService;
+
+@Controller
+@SessionAttributes("userid") // only use when generic parameter bc it takes memory
+public class UserController {
+	
+	private UserService userService;
+	
+	@Autowired(required = true)
+	@Qualifier(value = "userService")
+	public void setUserService(UserService us) {
+		this.userService = us;
+	}
+	
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String showRegisterPage(ModelMap model){
+		model.addAttribute("user", new User()); 
+		return "register";
+	}
+	
+	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String addUser(ModelMap model, User user) {
+		System.out.println(user);
+		this.userService.addUser(user);
+		return "login";
+	}
+
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String showLoginPage(){
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String handleLoginRequest(@RequestParam String username, @RequestParam String password, ModelMap model){
+		if(!userService.isUserValid(username, password)){
+			model.put("errorMsg", "Invalid user");
+			return "login";
+		}
+		
+		model.addAttribute("userid", Integer.toString(userService.getUserByName(username).getId()));
+		return "redirect:/event";
+	}
+	
+	
+	@RequestMapping(value = "/search-user", method = RequestMethod.GET)
+	public String showSearchUserPage(ModelMap model){
+		//model.addAttribute("user", new User());
+		return "searchuser";
+	}
+	
+	@RequestMapping(value = "/search-user", method = RequestMethod.POST)
+	public String searchtEvent(ModelMap model,@RequestParam("username") String username) {
+		System.out.println("test:  "+ username);
+		User result = this.userService.getUserByName(username);
+		model.addAttribute("user", result);
+		return "searchuser_result";
+
+	}
+}
