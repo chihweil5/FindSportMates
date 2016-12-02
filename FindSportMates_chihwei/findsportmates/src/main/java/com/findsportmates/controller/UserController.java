@@ -1,6 +1,5 @@
 package com.findsportmates.controller;
 
-<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -23,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-=======
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,7 +34,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
 
 import com.findsportmates.model.Event;
 import com.findsportmates.model.User;
@@ -53,7 +51,6 @@ public class UserController {
 		this.userService = us;
 	}
 	
-<<<<<<< HEAD
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegisterPage(ModelMap model){
@@ -69,9 +66,6 @@ public class UserController {
 		return "login";
 	}
 
-
-=======
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showLoginPage(){
 		return "login";
@@ -87,11 +81,7 @@ public class UserController {
 		model.addAttribute("userid", Integer.toString(userService.getUserByName(username).getId()));
 		return "redirect:/event";
 	}
-	
-<<<<<<< HEAD
-	
-=======
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
+
 	@RequestMapping(value = "/search-user", method = RequestMethod.GET)
 	public String showSearchUserPage(ModelMap model){
 		//model.addAttribute("user", new User());
