@@ -21,11 +21,17 @@
 				<form:errors path="password" cssClass="text-warning" />
 			</div>
 		</fieldset>
-
+		
 		<fieldset class="form-group">
 			<form:label path="role" class="col-md-1 control-label">role: </form:label>
 			<div class="col-md-5">
-				<form:input path="role" class="form-control" type="text" name="role" placeholder="Enter role" id="role"></form:input>
+				<form:select path="role" class="form-control" id="role"
+					required="required" onChange="showCourt(this.selectedIndex);">
+					<option value="NONE" label="--- Select ---" />
+					<option value="student">Student</option>
+					<option value="employee">Employee</option>
+					<option value="officer">Officer</option>
+				</form:select>
 				<form:errors path="role" cssClass="text-warning" />
 			</div>
 		</fieldset>
