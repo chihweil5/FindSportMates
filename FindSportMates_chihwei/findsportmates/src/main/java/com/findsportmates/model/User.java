@@ -29,11 +29,10 @@ public class User {
 	private String password;
 	
 	@Column(name = "role")
-<<<<<<< HEAD
+
 	private String role;
-=======
-	private int role;
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
+
+
 	
 	@Column(name = "phone")
 	private String phone;
@@ -51,22 +50,15 @@ public class User {
 		super();
 	}
 	
-<<<<<<< HEAD
 	public User(int id, String username, String password, String role, String department, String phone, String year) {
-=======
-	public User(int id, String username, String password, int role) {
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.role = role;
-<<<<<<< HEAD
 		this.department = department;
 		this.phone = phone;
 		this.year = year;
-=======
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
 	}
 
 	
@@ -101,20 +93,14 @@ public class User {
 
 	
 	
-<<<<<<< HEAD
+
 	public String getRole() {
-=======
-	public int getRole() {
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
 		return role;
 	}
 
 
-<<<<<<< HEAD
 	public void setRole(String role) {
-=======
-	public void setRole(int role) {
->>>>>>> 7c21dcdea10b244547e5e3e73bd332753d33adc4
+
 		this.role = role;
 	}
 

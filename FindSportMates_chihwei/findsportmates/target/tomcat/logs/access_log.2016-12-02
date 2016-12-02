@@ -30,3 +30,8 @@
 0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:18:55 -0700] "POST /register HTTP/1.1" 200 2224 http-bio-8080-exec-2 290
 0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:19:15 -0700] "GET /register HTTP/1.1" 200 4013 http-bio-8080-exec-3 11
 0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:19:37 -0700] "POST /register HTTP/1.1" 200 2224 http-bio-8080-exec-4 18
+0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:48:47 -0700] "GET /search-user HTTP/1.1" 500 10144 http-bio-8080-exec-6 59
+0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:49:01 -0700] "GET /searchuser HTTP/1.1" 500 10144 http-bio-8080-exec-7 25
+0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:49:43 -0700] "GET /search-user HTTP/1.1" 500 10144 http-bio-8080-exec-8 31
+0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:50:17 -0700] "GET /search-user HTTP/1.1" 200 2478 http-bio-8080-exec-9 3555
+0:0:0:0:0:0:0:1 - - [02/Dec/2016:13:54:43 -0700] "POST /search-user HTTP/1.1" 200 2378 http-bio-8080-exec-1 908
