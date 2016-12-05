@@ -61,7 +61,6 @@ public class User {
 		this.year = year;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
