@@ -1,5 +1,4 @@
 <%@ include file="common/header.jspf"%>
-
 <div class="container">
 	<h1>Login</h1>
 	<form:form action="/login" method="post" class="form-horizontal">
