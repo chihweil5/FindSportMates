@@ -51,7 +51,6 @@ public class UserController {
 		this.userService = us;
 	}
 	
-	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegisterPage(ModelMap model){
 		model.addAttribute("user", new User()); 
